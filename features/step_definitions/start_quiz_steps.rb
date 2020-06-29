@@ -1,5 +1,5 @@
 When('I visit the quiz start page') do
-    visit quiz_wizard_start_path
+    visit  quiz_wizard_step1_path
   end
   
   Then('I should see a name entry notice') do

@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ get "/quiz_wizard/step1" => 'quiz_wizard#step1', as: 'quiz_wizard_step1'
+ post "/quiz_wizard/validate_step" => 'quiz_wizard#validate_step', as: 'validate_step_path'
+
 end
