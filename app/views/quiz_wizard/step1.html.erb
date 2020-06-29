@@ -4,10 +4,11 @@
 
 <div>
   <p><strong>Enter your name</strong></p>
-     <%= form_with  model: @quiz_wizard, local: true do |form| %>
+     <%= form_with scope: :post, url: quiz_wizard_validate_step_path,
+     model: @quiz_wizard, as: :quiz_wizard, local: true do |form| %>
       <%= hidden_field_tag :current_step, 'step1' %>
       <%=form.label :quiz_taker, for: "quiz_taker"%>
       <%=form.text_field :quiz_taker%>
-      <%=form.submit "Start Quiz"%>
+      <%=form.submit "Continue"%>
     <%end%>
 </div>
