@@ -1,0 +1,16 @@
+<div>
+  <p><strong>What is your favorite cat?</strong></p>
+     <%= form_with url: quiz_wizard_validate_step_path, model: @quiz_wizard, local: true do |form| %>
+      <%= hidden_field_tag :current_step, 'step3' %>
+      <%=form.radio_button :answer_two, "Ceiling cat"%>
+      <%= form.label 'Ceiling cat'%><br>
+      <%=form.radio_button :answer_two, "Invisible bike cat"%>
+      <%= form.label 'Invisible bike cat'%><br>
+      <%=form.radio_button :answer_two, "Octocat"%>
+      <%= form.label :Octocat%><br>
+      <%=form.radio_button :answer_two, "Monorail cat"%>
+      <%= form.label "Monorail cat"%><br>
+      <%=form.submit "Back"%>
+      <%=form.submit "Next"%>
+    <%end%>
+</div>
