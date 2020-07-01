@@ -1,0 +1,22 @@
+<div>
+  <p><strong>What is your favorite gemstone?</strong></p>
+  <div>
+    <a href="/quiz_wizard/step3">
+      <span class="btn btn-default">
+        Back
+      </span>
+    </a>
+  </div>
+     <%= form_with url: quiz_wizard_validate_step_path, model: @quiz_wizard, local: true do |form| %>
+      <%= hidden_field_tag :current_step, 'step3' %>
+      <%=form.radio_button :answer_three, "Diamond", class: 'step4-radio'%>
+      <%= form.label 'Diamond'%><br>
+      <%=form.radio_button :answer_three, "Ruby", class: 'step4-radio'%>
+      <%= form.label 'Ruby'%><br>
+      <%=form.radio_button :answer_three, "Kryptonite", class: 'step4-radio'%>
+      <%= form.label :Kryptonite%><br>
+      <%=form.radio_button :answer_three, "Emerald", class: 'step4-radio'%>
+      <%= form.label "Emerald"%><br>
+      <%=form.submit "Finish", id: 'btfinish', class: "btn btn-default", data: {disable_with: false} %>
+    <%end%>
+</div>

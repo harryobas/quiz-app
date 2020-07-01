@@ -1,16 +1,24 @@
+
+
 <div>
   <p><strong>What is your favorite cat?</strong></p>
+  <div>
+    <a href="/quiz_wizard/step2">
+      <span class="btn btn-default">
+        Back
+      </span>
+    </a>
+  </div>
      <%= form_with url: quiz_wizard_validate_step_path, model: @quiz_wizard, local: true do |form| %>
       <%= hidden_field_tag :current_step, 'step3' %>
-      <%=form.radio_button :answer_two, "Ceiling cat"%>
+      <%=form.radio_button :answer_two, "Ceiling cat", class: 'step3-radio'%>
       <%= form.label 'Ceiling cat'%><br>
-      <%=form.radio_button :answer_two, "Invisible bike cat"%>
+      <%=form.radio_button :answer_two, "Invisible bike cat", class: 'step3-radio'%>
       <%= form.label 'Invisible bike cat'%><br>
-      <%=form.radio_button :answer_two, "Octocat"%>
+      <%=form.radio_button :answer_two, "Octocat", class: 'step3-radio'%>
       <%= form.label :Octocat%><br>
-      <%=form.radio_button :answer_two, "Monorail cat"%>
+      <%=form.radio_button :answer_two, "Monorail cat", class: 'step3-radio'%>
       <%= form.label "Monorail cat"%><br>
-      <%=form.submit "Back"%>
-      <%=form.submit "Next"%>
+      <%=form.submit "Next", id: 'btnext3', class: "btn btn-default",  data: {disable_with: false} %>
     <%end%>
 </div>

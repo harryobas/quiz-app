@@ -21,5 +21,8 @@ module QuizWizard
         class Step3 < Base
           validates :answer_two, presence: true
         end
+        class Step4 < Base 
+          validates :answer_three, presence: true 
+        end
       end
     end

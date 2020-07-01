@@ -1,17 +1,18 @@
 <div>
   <p><strong>What is your favorite versioning tool?</strong></p>
+
      <%= form_with url: quiz_wizard_validate_step_path, model: @quiz_wizard, local: true do |form| %>
       <%= hidden_field_tag :current_step, 'step2' %>
-      <%=form.radio_button :answer_one, "SVN"%>
+      <%=form.radio_button :answer_one, "SVN", class: 'step2-radio'%>
       <%= form.label :SVN%><br>
-      <%=form.radio_button :answer_one, "GIT"%>
+      <%=form.radio_button :answer_one, "GIT", class: 'step2-radio'%>
       <%= form.label :GIT%><br>
-      <%=form.radio_button :answer_one, "CSV"%>
+      <%=form.radio_button :answer_one, "CSV", class: 'step2-radio'%>
       <%= form.label :CSV%><br>
-      <%=form.radio_button :answer_one, "Mercurial"%>
+      <%=form.radio_button :answer_one, "Mercurial", class: 'step2-radio'%>
       <%= form.label :Mercurial%><br>
-      <%=form.radio_button :answer_one, "Ehh, what?"%>
+      <%=form.radio_button :answer_one, "Ehh, what?", class: 'step2-radio'%>
       <%= form.label "Ehh, what?"%><br>
-      <%=form.submit "Next"%>
+      <%=form.submit "Next", id: "btnext2", class: "btn btn-default",  data: {disable_with: false}%>
     <%end%>
 </div>

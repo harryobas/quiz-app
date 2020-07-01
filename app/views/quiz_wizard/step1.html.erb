@@ -7,7 +7,7 @@
      <%= form_with url: quiz_wizard_validate_step_path, model: @quiz_wizard, local: true do |form| %>
       <%= hidden_field_tag :current_step, 'step1' %>
       <%=form.label :quiz_taker, for: "quiz_taker"%>
-      <%=form.text_field :quiz_taker%>
+      <%=form.text_field :quiz_taker, id: "quiz_taker"%>
       <%=form.submit "Continue"%>
     <%end%>
 </div>

@@ -9,4 +9,6 @@ Feature: A question at a time
     When I fill in the name entry form
     Then I should see the first quiz question
     When I answer the question
-    Then i should see the second question 
+    Then i should see the second question
+
+ 
