@@ -11,6 +11,6 @@ Feature: Go back and forth through the different questions
    
   Scenario: Go to next question 
     Given I on a question page that is not the last question
-    When I answer the question 
+    When I select an answer the question 
     And click the next button 
     Then I should see the next question
