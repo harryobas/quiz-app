@@ -5,5 +5,6 @@ Rails.application.routes.draw do
  get "/quiz_wizard/step4" => 'quiz_wizard#step4', as: 'quiz_wizard_step4'
 
  post "/quiz_wizard/validate_step" => 'quiz_wizard#validate_step', as: 'quiz_wizard_validate_step'
+ 
 
 end

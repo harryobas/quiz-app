@@ -5,14 +5,21 @@ class QuizWizardController < ApplicationController
       current_step = params[:current_step]
 
       @quiz_wizard = wizard_quiz_for_step(current_step)
-      @quiz_wizard.quiz.attributes = quiz_wizard_params_for(current_step)
+      begin
+        @quiz_wizard.quiz.attributes = quiz_wizard_params_for(current_step)
+      rescue StandardError => e 
+        redirect_to "/quiz_wizard/#{current_step}", alert: 'You must choose an answer to proceed' and return
+      end 
+
       session[:quiz_attributes] = @quiz_wizard.quiz.attributes
 
       if @quiz_wizard.valid?
         next_step = wizard_quiz_next_step(current_step)
         #create and return unless next_step
         redirect_to action: next_step
-      end
+      else 
+        render current_step
+      end 
 
     end
 

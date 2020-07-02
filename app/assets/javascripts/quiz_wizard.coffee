@@ -8,6 +8,8 @@ $(document).ready ->
     clear_name_textbox()
     uncheck_radio()
 
+    if($('.step2-radio').is(':checked'))
+        $("btnext2").prop('disabled', false)
     
 disable_next_buttons = () ->
     $("#btnext2").prop('disabled', true)
