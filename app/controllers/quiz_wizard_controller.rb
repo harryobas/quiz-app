@@ -30,10 +30,10 @@ class QuizWizardController < ApplicationController
     end 
 
     def create 
-      quiz = @quiz_wizard.quiz.class.create(session[:quiz_attributes])
-      if quiz 
+     #quiz = @quiz_wizard.quiz.class.create(session[:quiz_attributes])
+      if @quiz_wizard.quiz.save 
         session[:quiz_attributes] = nil
-        redirect_to quiz_wizard_path(quiz.id)
+        redirect_to quiz_wizard_path(@quiz_wizard.quiz.id)
       end
 
     end
