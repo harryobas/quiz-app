@@ -1,5 +1,5 @@
 class QuizWizardController < ApplicationController
-    before_action :load_quiz_wizard, except: %i(validate_step)
+    before_action :load_quiz_wizard, except: %i(validate_step show)
 
     def validate_step
       current_step = params[:current_step]
@@ -15,11 +15,26 @@ class QuizWizardController < ApplicationController
 
       if @quiz_wizard.valid?
         next_step = wizard_quiz_next_step(current_step)
-        #create and return unless next_step
+        create and return unless next_step
         redirect_to action: next_step
       else 
         render current_step
       end 
+
+    end
+
+    def show 
+      wizard_step = QuizWizard::Quiz::STEPS.last
+      wizard = wizard_quiz_for_step(wizard_step)
+      @quiz_wizard = wizard.quiz.class.find(params[:id])
+    end 
+
+    def create 
+      quiz = @quiz_wizard.quiz.class.create(session[:quiz_attributes])
+      if quiz 
+        session[:quiz_attributes] = nil
+        redirect_to quiz_wizard_path(quiz.id)
+      end
 
     end
 
@@ -36,10 +51,6 @@ class QuizWizardController < ApplicationController
 
     def wizard_quiz_next_step(step)
     QuizWizard::Quiz::STEPS[QuizWizard::Quiz::STEPS.index(step) + 1]
-  end
-
-  def wizard_quiz_previous_step(step)
-    QuizWizard::Quiz::STEPS[QuizWizard::Quiz::STEPS.index(step) - 1]
   end
 
   def quiz_wizard_params_for(step)

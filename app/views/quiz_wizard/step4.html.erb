@@ -9,7 +9,7 @@
     </a>
   </div>
      <%= form_with url: quiz_wizard_validate_step_path, model: @quiz_wizard, local: true do |form| %>
-      <%= hidden_field_tag :current_step, 'step3' %>
+      <%= hidden_field_tag :current_step, 'step4' %>
       <%=form.radio_button :answer_three, "Diamond", class: 'step4-radio'%>
       <%= form.label 'Diamond'%><br>
       <%=form.radio_button :answer_three, "Ruby", class: 'step4-radio'%>

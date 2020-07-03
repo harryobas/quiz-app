@@ -4,12 +4,8 @@
 
 
 $(document).ready -> 
-    #disable_next_buttons()
     clear_name_textbox()
     uncheck_radio()
-
-    if($('.step2-radio').is(':checked'))
-        $("btnext2").prop('disabled', false)
     
 disable_next_buttons = () ->
     $("#btnext2").prop('disabled', true)
@@ -18,7 +14,6 @@ disable_next_buttons = () ->
 
 clear_name_textbox = () -> 
     $('#quiz_taker').val("")
-
 
 uncheck_radio = () -> 
     $('.step2-radio').prop('checked', false)
